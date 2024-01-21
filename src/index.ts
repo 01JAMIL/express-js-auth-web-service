@@ -19,16 +19,6 @@ app.use(morgan("dev"));
 
 app.use("/api/user", userRouter);
 
-sequelize
-  .sync()
-  .then(() => {
-    console.log("\x1b[34m[server]: Database connected\x1b[0m");
-  })
-  .catch((err) => {
-    console.log("\x1b[31m[server]: Database connection error\x1b[0m");
-    console.log(err);
-  });
-
 app.listen(port, () => {
   console.log(
     `\x1b[34m[server]: server is running at http://localhost:${port}\x1b[0m`
